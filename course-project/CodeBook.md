@@ -1,6 +1,6 @@
 # CodeBook.md
 
-# Run_analytics.R 
+# run_analytics.R 
 
 * downloads required data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 * unzips the file if it has not been uncompressed
