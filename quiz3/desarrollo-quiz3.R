@@ -21,8 +21,8 @@ library(httr)
 direccion <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
 archivo <- "ss06hid.csv"
 download.file(direccion, archivo, method="curl")
-datos <- read.csv("ss06hid.csv")
-logicalvector <- datos$ACR==3 & datos$AGS==6
+data <- read.csv("ss06hid.csv")
+logicalvector <- data$ACR==3 & data$AGS==6
 first3 <- which(logicalvector)[1:3] # which() treats NAs as FALSE
 first3
 
@@ -36,7 +36,7 @@ library(jpeg)
 
 direccion2 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg"
 archivo2 <- "jeff.jpg"
-download.file(direccion2, archivo, method="curl")
+download.file(direccion2, archivo2, method="curl")
 foto <- readJPEG("jeff.jpg", native = TRUE)
 quantile(foto)
 
@@ -56,15 +56,15 @@ library(data.table)
 
 direccion3 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
 archivo3 <- "GDP.csv"
-download.file(direccion3, archivo, method="curl")
+download.file(direccion3, archivo3, method="curl")
 GDP <- data.table(read.csv("GDP.csv", skip = 4, nrows = 191))
 GDP <- GDP[X != ""]
 GDP <- GDP[, list(X, X.1, X.3, X.4)]
 setnames(GDP, c("X", "X.1", "X.3", "X.4"), c("CountryCode", "rankingGDP", "Long.Name", "GDP"))
 
-direccion4 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
+direccion4 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv"
 archivo4 <- "EDSTATS_Country.csv"
-download.file(direccion4, archivo, method="curl")
+download.file(direccion4, archivo4, method="curl")
 EDSTATS <- data.table(read.csv("EDSTATS_Country.csv"))
 
 data2 <- merge(GDP, EDSTATS, all = TRUE, by = c("CountryCode"))
